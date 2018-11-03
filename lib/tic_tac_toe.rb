@@ -35,9 +35,7 @@ def position_taken?(board, index)
 end
 
 def valid_move?(board, index)
-  if index.between?(0,8) && position_taken?(board, index) == false
-    return true
-  end
+  index.between?(0,8) && !position_taken?(board, index)
 end
 
 def turn(board) 
@@ -97,15 +95,11 @@ end
 
 
 def draw?(board)
-  if !won?(board) && full?(board)
-    return true 
-  end
+  !won?(board) && full?(board)
 end
 
 def over?(board)
-  if won?(board) || draw?(board)
-    return true
-  end
+  won?(board) || draw?(board)
 end
 
 def winner(board)
